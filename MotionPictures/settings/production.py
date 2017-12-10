@@ -25,7 +25,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY','ael7u9sm2eu+xdc-y#tr_)=u0f@j@4!3hd$4hb
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['https://motionpicture.herokuapp.com','www.24motionpicture.com']
+ALLOWED_HOSTS = ['https://motionpicture.herokuapp.com','.24motionpicture.com']
 
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER='ajaymundhe21@gmail.com'
