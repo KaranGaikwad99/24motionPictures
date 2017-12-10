@@ -5,8 +5,8 @@ AWS_FILE_EXPIRE = 200
 AWS_PRELOAD_METADATA = True
 AWS_QUERYSTRING_AUTH = True
 
-DEFAULT_FILE_STORAGE = 'src.MotionPictures.aws.utils.MediaRootS3BotoStorage'
-STATICFILES_STORAGE = 'src.MotionPictures.aws.utils.StaticRootS3BotoStorage'
+DEFAULT_FILE_STORAGE = 'MotionPictures.aws.utils.MediaRootS3BotoStorage'
+STATICFILES_STORAGE = 'MotionPictures.aws.utils.StaticRootS3BotoStorage'
 AWS_STORAGE_BUCKET_NAME = 'motionpicture-static'
 S3DIRECT_REGION = 'ap-south-1'
 S3_URL = '//%s.s3.amazonaws.com/' % AWS_STORAGE_BUCKET_NAME
