@@ -43,4 +43,4 @@ urlpatterns = [
     url(r'^webdevelopement/',WebdevView.as_view(),name='WebdevView'),
     url(r'^contact/',contact, name='contact'),
     
-] + static(base.MEDIA_URL,document_root=base.MEDIA_ROOT)
+] + static(production.MEDIA_URL,document_root=production.MEDIA_ROOT)
