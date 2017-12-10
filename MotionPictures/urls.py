@@ -24,7 +24,7 @@ from django.views.generic import TemplateView
 
 
 
-from .settings import base
+from .settings import production
 #from home.views import HomeView
 #import photography.views 
 from softwaredev.views import SoftwareView
