@@ -144,7 +144,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
 
-MEDIA_ROOT =  os.path.join((BASE_DIR),"mediafiles", )
+#MEDIA_ROOT =  os.path.join((BASE_DIR),"mediafiles", )
 CRISPY_TEMPLATE_PACK = 'bootstrap3'
     
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
@@ -175,4 +175,11 @@ STATICFILES_DIRS = [
 ]
 STATIC_URL = 'https://%s/%s/' % (AWS_S3_CUSTOM_DOMAIN, AWS_LOCATION)
 STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+MEDIA_URL = '//%s.s3.amazonaws.com/media/' % AWS_STORAGE_BUCKET_NAME
+MEDIA_ROOT = MEDIA_URL
+STATIC_URL = S3_URL + 'static/'
+ADMIN_MEDIA_PREFIX = STATIC_URL + 'admin/'
+
+
+
 DEFAULT_FILE_STORAGE='MotionPictures.storage_backends.MediaStore'
