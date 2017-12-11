@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 
 import os
 import datetime
+from .settings.aws.conf import *
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR =  os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
@@ -161,23 +162,23 @@ SECURE_HSTS_SECONDS             = 1000000
 SECURE_FRAME_DENY               = True
 
 
-AWS_ACCESS_KEY_ID = "AKIAIAI7F24VJB42D4ZA"
-AWS_SECRET_ACCESS_KEY = "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"
-AWS_STORAGE_BUCKET_NAME = 'motionpicture-static'
-AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
-AWS_S3_OBJECT_PARAMETERS = {
-    'CacheControl': 'max-age=86400',
-}
-AWS_LOCATION = 'static'
+#AWS_ACCESS_KEY_ID = "AKIAIAI7F24VJB42D4ZA"
+#AWS_SECRET_ACCESS_KEY = "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"
+#AWS_STORAGE_BUCKET_NAME = 'motionpicture-static'
+#AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
+#AWS_S3_OBJECT_PARAMETERS = {
+ #   'CacheControl': 'max-age=86400',
+#}
+#AWS_LOCATION = 'static'
 
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
 ]
 
-STATIC_URL = 'https://%s/%s/' % (AWS_S3_CUSTOM_DOMAIN, AWS_LOCATION)
-STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+#STATIC_URL = 'https://%s/%s/' % (AWS_S3_CUSTOM_DOMAIN, AWS_LOCATION)
+#STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
 
 
 
-DEFAULT_FILE_STORAGE='mediafiles.storage_backends.MediaStore'
+#DEFAULT_FILE_STORAGE='mediafiles.storage_backends.MediaStore'

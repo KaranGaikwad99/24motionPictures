@@ -8,7 +8,7 @@ from django.contrib import admin
 from django.core.files.base import ContentFile
 #from .settings import base
 from PIL import Image
-from MotionPictures.settings import production
+from .settings import production
 from .models import Album, AlbumImage
 from .forms import AlbumForm
 
