@@ -28,6 +28,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['https://motionpicture.herokuapp.com','.24motionpicture.com']
 
+
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER='ajaymundhe21@gmail.com'
 EMAIL_HOST_PASSWORD=os.environ.get('EMAIL_PASSWORD')
