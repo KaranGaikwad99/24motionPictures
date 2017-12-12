@@ -9,6 +9,7 @@ from MotionPictures.settings import production
 # Create your views here.
 
 def contact(request):
+    form_class=ContactForm
     if request.method == 'POST':
         form=form_class(data=request.POST)
         if form.is_valid():
@@ -19,7 +20,11 @@ def contact(request):
             message=request.POST.get('message','')
             template = get_template('contact_template.txt')
             context =Context({
-            "form":form
+                'Name':first_name,
+                'Surname':last_name,
+                'email':email,
+                'message':message,
+                'CHOICES':CHOICES,
                 })
             content=template.render(context)
             email = EmailMessage(
