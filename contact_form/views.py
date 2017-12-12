@@ -20,7 +20,7 @@ def contact(request):
             CHOICES=request.POST.get('CHOICES','')
             email=request.POST.get('email','')
             message=request.POST.get('message','')
-            template = get_template('contact_template.txt')
+            template =template.render(context)
             context =Context({
                 'first_name':first_name,
                 'last_name':last_name,
@@ -38,7 +38,7 @@ def contact(request):
             )
             email.send()
             return redirect('contact')
-    return render(request, 'contact_form/contact.html',{
+    return render(request, 'contact.html',{
         'form':form_class,
         })
 
