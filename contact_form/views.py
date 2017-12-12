@@ -38,7 +38,7 @@ def contact(request):
             )
             email.send()
             return redirect('contact')
-    return render(request, 'contact.html',{
+    return render(request, 'contact_form/contact.html',{
         'form':form_class,
         })
 
