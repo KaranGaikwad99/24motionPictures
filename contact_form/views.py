@@ -10,7 +10,7 @@ from MotionPictures.settings import base
 def contact(request):
     form = ContactForm(request.POST or None)
     if form.is_valid():
-        save_it=form.save(commit=False)
+        save_it=form.save()
         save_it.save()
         Name=form.cleaned_data['first_name']
         Surname=form.cleaned_data['last_name']
