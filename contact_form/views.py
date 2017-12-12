@@ -18,9 +18,9 @@ def contact(request):
             email=request.POST.get('email','')
             message=request.POST.get('message','')
             template = get_template('contact_template.txt')
-            context = {
-            "form":form,
-                }
+            context =Context({
+            "form":form
+                })
             content=template.render(context)
             email = EmailMessage(
                 "New contact form submission",
@@ -31,7 +31,7 @@ def contact(request):
             )
             email.send()
             return redirect('contact')
-    return render(request, "contact.html",context)
+    return render(request, "contact.html",Context)
 
 
 
