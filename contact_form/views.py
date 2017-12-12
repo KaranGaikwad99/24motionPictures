@@ -20,7 +20,7 @@ def contact(request):
             CHOICES=request.POST.get('CHOICES','')
             email=request.POST.get('email','')
             message=request.POST.get('message','')
-            template =template.render(context)
+            information =template.render(context)
             context =Context({
                 'first_name':first_name,
                 'last_name':last_name,
@@ -28,7 +28,7 @@ def contact(request):
                 'message':message,
                 'CHOICES':CHOICES,
                 })
-            content=render_to_string(template,context)
+            content=render_to_string(information,context)
             email = EmailMessage(
                 "New contact form submission",
                 content,
