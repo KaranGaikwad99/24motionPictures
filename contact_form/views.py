@@ -36,7 +36,9 @@ def contact(request):
             )
             email.send()
             return redirect('contact')
-    return render(request, "contact.html",Context)
+    return render(request, "contact.html",{
+        'form':form_class,
+        })
 
 
 
