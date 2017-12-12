@@ -3,6 +3,7 @@ from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, redirect
 from contact_form.forms import ContactForm
+from django.template import Context
 from django.views.generic.base import TemplateView
 from django.template.loader import get_template
 from MotionPictures.settings import production
@@ -36,7 +37,7 @@ def contact(request):
             )
             email.send()
             return redirect('contact')
-    return render(request, "contact.html",{
+    return render(request, 'contact.html',{
         'form':form_class,
         })
 
