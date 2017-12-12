@@ -22,13 +22,13 @@ def contact(request):
             message=request.POST.get('message','')
             template = get_template('contact_template.txt')
             context =Context({
-                'first_nameirst_name':first_name,
+                'first_name':first_name,
                 'last_name':last_name,
                 'email':email,
                 'message':message,
                 'CHOICES':CHOICES,
                 })
-            content=render_to_string(context)
+            content=render_to_string(template,context)
             email = EmailMessage(
                 "New contact form submission",
                 content,
