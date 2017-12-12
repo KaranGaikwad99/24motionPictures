@@ -7,6 +7,7 @@ from django.template import Context
 from django.views.generic.base import TemplateView
 from django.template.loader import get_template
 from MotionPictures.settings import production
+from django.template.loader import render_to_string
 # Create your views here.
 
 def contact(request):
@@ -27,7 +28,7 @@ def contact(request):
                 'message':message,
                 'CHOICES':CHOICES,
                 })
-            content=template.render(context)
+            content=render_to_string(context)
             email = EmailMessage(
                 "New contact form submission",
                 content,
