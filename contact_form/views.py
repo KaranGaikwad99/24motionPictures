@@ -4,7 +4,7 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, redirect
 from contact_form.forms import ContactForm
 from django.template import Context
-from django.core.mail import EmailMessage
+
 from django.views.generic.base import TemplateView
 from django.template.loader import get_template
 from MotionPictures.settings import production
@@ -21,13 +21,13 @@ def contact(request):
             email=request.POST.get('email','')
             message=request.POST.get('message','')
             template = get_template('contact_template.txt')
-            context =Context({
+            context{
                 'first_name':first_name,
                 'last_name':last_name,
                 'email':email,
                 'message':message,
                 'CHOICES':CHOICES,
-                })
+                }
             content=template.render(context)
             email = EmailMessage(
                 "New contact form submission",
