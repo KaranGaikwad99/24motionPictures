@@ -9,7 +9,7 @@ from MotionPictures.settings.aws import utils
 class Album(models.Model):
     title = models.CharField(max_length=70)
     description = models.TextField(max_length=1024)
-    thumb = ProcessedImageField(upload_to='albums', processors=[ResizeToFit(300)], format='JPEG', options={'quality': 90})
+    thumb = ProcessedImageField(upload_to='MediaRootS3BotoStorage', processors=[ResizeToFit(300)], format='JPEG', options={'quality': 90})
     tags = models.CharField(max_length=250)
     is_visible = models.BooleanField(default=True)
     created = models.DateTimeField(auto_now_add=True)
@@ -28,6 +28,6 @@ class AlbumImage(models.Model):
     album = models.ForeignKey('album')
     alt = models.CharField(max_length=255, default=uuid.uuid4)
     created = models.DateTimeField(auto_now_add=True)
-    width = models.IntegerField(default=0)
-    height = models.IntegerField(default=0)
+    width = models.IntegerField(default=1920)
+    height = models.IntegerField(default=1200)
     slug = models.SlugField(max_length=70, default=uuid.uuid4, editable=False)
