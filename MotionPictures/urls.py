@@ -31,7 +31,7 @@ from softwaredev.views import SoftwareView
 from Webdev.views import WebdevView
 from photography.views import gallary,AlbumDetail
 from home.views import photo_list
-from contact_form.views import contact
+from contact_form.views import Data_view
 
 urlpatterns = [
 	
@@ -41,6 +41,6 @@ urlpatterns = [
     url(r'^(?P<slug>[-\w]+)$',AlbumDetail.as_view(),name='album'),
     url(r'^software/',SoftwareView.as_view(),name='SoftwareView'),
     url(r'^webdevelopement/',WebdevView.as_view(),name='WebdevView'),
-    url(r'^contact/',contact, name='contact'),
+    url(r'^contact/',Data_view, name='Data_view'),
     
 ] + static(production.MEDIA_URL,document_root=production.MEDIA_ROOT)
