@@ -1,52 +1,60 @@
-from django.views.generic import TemplateView
+from django.core.mail import send_mail, BadHeaderError
 from django.shortcuts import render
-from .models import UserData
-from django.template.context_processors import csrf
+from django.http import HttpResponse, HttpResponseRedirect
+from django.shortcuts import render, redirect
+from contact_form.forms import ContactForm
+from django.template import Context
+from django.views.generic.base import TemplateView
+from django.template.loader import get_template
+from MotionPictures.settings import production
+from django.template.loader import render_to_string
+# Create your views here.
 
-from .forms import ContactForm
-# Create your views here.'''
+def contact(request):
+    form_class=ContactForm
+    if request.method == 'POST':
+        form=form_class(data=request.POST)
+        if form.is_valid():
+            first_name=request.POST.get('first_name','')
+            last_name=request.POST.get('last_name','')
+            CHOICES=request.POST.get('CHOICES','')
+            email=request.POST.get('email','')
+            message=request.POST.get('message','')
+            information =template.render(context)
+            context =Context({
+                'first_name':first_name,
+                'last_name':last_name,
+                'email':email,
+                'message':message,
+                'CHOICES':CHOICES,
+                })
+            content=render_to_string(information,context)
+            email = EmailMessage(
+                "New contact form submission",
+                content,
+                "24MotionPictures" +'',
+                ['ajaymundhe21@gmail.com'],
+                headers = {'Reply-To': contact_email }
+            )
+            email.send()
+            return redirect('contact')
+    return render(request, 'contact.html',{
+        'form':form_class,
+        })
 
 
-'''def Data_view(request):
-    form=ContactForm(request.POST)
-    if form.is_valid():
-        form.save()
-        name=form.cleaned_data.get('Name')
-        surname=form.cleaned_data.get('Surname'),
-        choice=form.cleaned_data.get('Choice'),
-        email=form.cleaned_data.get('Email'),
-        message=form.cleaned_data.get('Message'),
-
-        return redirect('index.html')
-
-    else:
-        form=ContactForm()
-
-    return rendeyr(request,'layout/new_contact.html',{'form':form}) '''
 
 
 
-'''def Data_view(request):
-    form=ContactForm(request.POST)
-    if form.is_valid():
-        form.save()
-        return redirect('index.html')
-    #   text=form.cleaned_data['Name',]
 
-    else:
-        form= ContactForm()
+      #  subject= 'site contact form'
+       # from_email= base.EMAIL_HOST_USER
+        #to_email=[save_it.email,'ajaymundhe21@gmail.com'] 
+        #send_mail(subject,
+         #       message, 
+          #      from_email, 
+           #     to_email,
+            #    fail_silently=False)
 
-    args={'form':form }
-    return render (request,'layout/new_contact.html',args)'''
 
-def Data_view(request):
-    form=ContactForm(request.POST or None   )
-    if form.is_valid():
-        query=form.save(commit=False)
-        query.save()
-        form = ContactForm
-    context = {
-        "form":form,
 
-    }
-    return render (request,'layout/new_contact.html', context)
