@@ -21,7 +21,7 @@ from django.views.generic.base import RedirectView
 from django.contrib.auth import views as auth_views
 
 from django.views.generic import TemplateView
-
+from django.contrib.sitemaps.views import sitemap
 
 
 from .settings import production
@@ -42,5 +42,7 @@ urlpatterns = [
     url(r'^software/',SoftwareView.as_view(),name='SoftwareView'),
     url(r'^webdevelopement/',WebdevView.as_view(),name='WebdevView'),
     url(r'^contact/',contact, name='contact'),
+    url(r'^sitemap\.xml$', sitemap, {'sitemaps': sitemaps},
+    name='django.contrib.sitemaps.views.sitemap')
     
 ] + static(production.MEDIA_URL,document_root=production.MEDIA_ROOT)
