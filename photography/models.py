@@ -22,6 +22,9 @@ class Album(models.Model):
     def __str__(self):
         return self.title
 
+    def get_absolute_url(self):
+        return '/'+self.title
+
 class AlbumImage(models.Model):
     image = ProcessedImageField(upload_to='MediaRootS3BotoStorage',)
     thumb = ProcessedImageField(upload_to='albums', processors=[ResizeToFit(300)], format='JPEG', options={'quality': 80})
