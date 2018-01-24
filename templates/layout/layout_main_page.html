@@ -12,12 +12,7 @@
 	<meta name="keywords" content="Websites Development,Website Design,Dynamic Webite,E-Commerce webites,Android App,Ios APP Development,"/>
 	<!-- Global site tag (gtag.js) - Google Analytics -->
 	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-111313442-1"></script>
-	<script>
- 		window.dataLayer = window.dataLayer || [];
-  		function gtag(){dataLayer.push(arguments);}
-  		gtag('js', new Date());
-		gtag('config', 'UA-111313442-1');
-	</script>
+	
 
 	<script src="https://use.fontawesome.com/9b7454109a.js"></script>
 	<link rel="shortcut icon" type ="image/png" href="{% static 'images/favicon.png' %}" >
@@ -25,20 +20,20 @@
 	<link href="https://fonts.googleapis.com/css?family=Roboto+Slab:700" rel="stylesheet">
 	
 	<!-- Animate.css -->
-	<!--<link rel="stylesheet" href="{% static 'css/animate.css' %}">
+	<link rel="stylesheet" href="{% static 'css/animate.css' %}">
 	<!-- Icomoon Icon Fonts-->
-	<!--<link rel="stylesheet" href="{% static 'css/icomoon.css' %}">
+	<link rel="stylesheet" href="{% static 'css/icomoon.css' %}">
 	<!-- Bootstrap  -->
-	<!--<link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
-	<!--<link rel="stylesheet" href="{% static 'css/style.min.css.gz' %}">-->
+	<link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+	<link rel="stylesheet" href="{% static 'css/style.min.css.gz' %}">
 	
-	<!--<link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}">-->
+	<link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}">
 	<link rel="stylesheet" href="{% static 'css/owl.theme.default.min.css' %}">
 	<link rel="stylesheet" href="{% static 'css/flexslider.css' %}">
 	<link rel="stylesheet" href="{% static 'css/style.css' %}">
 	<link rel="stylesheet" href="{% static 'ranger/css/responsive.css' %}">
 	<!-- jQuery -->
-	<script src="{% static 'js/modernizr-2.6.2.min.js'  %}"></script>
+	
 	
 	</head>
 	<body>
@@ -93,8 +88,13 @@
 
 	<!-- MAIN JS -->
 	<script src="{% static 'js/main.js' %}"></script>
-
-	
+	<script>
+ 		window.dataLayer = window.dataLayer || [];
+  		function gtag(){dataLayer.push(arguments);}
+  		gtag('js', new Date());
+		gtag('config', 'UA-111313442-1');
+	</script>
+	<script src="{% static 'js/modernizr-2.6.2.min.js'  %}"></script>
 	
 	</body>
 	</html>
