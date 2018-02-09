@@ -24,7 +24,7 @@ BASE_DIR =  os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__fi
 SECRET_KEY = os.environ.get('SECRET_KEY','ael7u9sm2eu+xdc-y#tr_)=u0f@j@4!3hd$4hbkt5ua6*!01c^')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['https://motionpicture.herokuapp.com','.24motionpicture.com']
 
